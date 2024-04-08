@@ -15,8 +15,7 @@ const Home = () => {
     }
 
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API}/api/openai` ||
-        'http://localhost:3000/api/openai',
+      process.env.NEXT_PUBLIC_API || 'http://localhost:3000/api/openai',
       {
         method: 'POST',
         headers: {

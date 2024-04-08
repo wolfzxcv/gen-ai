@@ -1,6 +1,7 @@
 import { ChakraProvider } from '@chakra-ui/react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import packageJson from '~/package.json';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -17,6 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        {packageJson.version && (
+          <meta name="version" content={`${packageJson.version}`}></meta>
+        )}
+      </head>
       <body className={inter.className}>
         <ChakraProvider>{children}</ChakraProvider>
       </body>
