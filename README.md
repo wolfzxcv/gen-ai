@@ -1,6 +1,6 @@
 ## Getting Started
 
-1. Create .env file, copy and paste your API_KEY, see .env.example file for the format
+1. Create .env file, copy and paste your API_KEY, also modify the API URL if necessary, see .env.example file for the format
 
 2. Install related packages
 

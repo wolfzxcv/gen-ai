@@ -14,16 +14,20 @@ const Home = () => {
       return;
     }
 
-    const res = await fetch('http://localhost:3000/api/openai', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        content: question
-      })
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API}/api/openai` ||
+        'http://localhost:3000/api/openai',
+      {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          content: question
+        })
+      }
+    );
 
     const chatgptData = await res.json();
 
