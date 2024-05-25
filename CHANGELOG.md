@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.4](https://github.com/wolfzxcv/gen-ai/compare/v0.1.3...v0.1.4) (2024-05-25)
+
+
+### Features
+
+* **dialogflow:** integrate with dialogflow ([64443be](https://github.com/wolfzxcv/gen-ai/commit/64443be429507cc420dd8a5ca3ce9dc38fb1ccaf))
+
 ### [0.1.3](https://github.com/wolfzxcv/gen-ai/compare/v0.1.2...v0.1.3) (2024-05-25)
 
 
