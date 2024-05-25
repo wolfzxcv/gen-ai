@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.1.5](https://github.com/wolfzxcv/gen-ai/compare/v0.1.4...v0.1.5) (2024-05-25)
+
+
+### Features
+
+* **many:** add speech-to-text on pc, add RWD, refator codes ([123d0d8](https://github.com/wolfzxcv/gen-ai/commit/123d0d846ef3b55412c1ff4570749de37f403b95))
+
 ### [0.1.4](https://github.com/wolfzxcv/gen-ai/compare/v0.1.3...v0.1.4) (2024-05-25)
 
 
