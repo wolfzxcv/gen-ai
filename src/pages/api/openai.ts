@@ -1,4 +1,4 @@
-import info from '@/utils/extra-information';
+import info, { initGreeting } from '@/utils/extra-information';
 import { openai } from '@/utils/openai';
 import { ChatCompletionMessage, ChatCompletionRole } from 'openai/resources';
 
@@ -9,7 +9,7 @@ export type IChatGPTMessage = {
   content: string | null;
 };
 
-const chatHistory: IChatGPTMessage[] = [...info];
+const chatHistory: IChatGPTMessage[] = [initGreeting, ...info];
 
 export default async function handler(
   req: NextApiRequest,
