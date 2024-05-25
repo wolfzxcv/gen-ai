@@ -4,7 +4,13 @@ import { Box, Button, Flex, Stack, Textarea } from '@chakra-ui/react';
 import { useState } from 'react';
 
 const Home = () => {
-  const [chatHistory, setChatHistory] = useState<IChatGPTMessage[]>([]);
+  const [chatHistory, setChatHistory] = useState<IChatGPTMessage[]>([
+    {
+      role: 'assistant',
+      content:
+        "Hey there! Don't hesitate to ask me anything about UE, the University of Europe for Applied Sciences. You can use any language you're comfortable with. I'm here to help!"
+    }
+  ]);
 
   const [question, setQuestion] = useState<string>('');
 
