@@ -51,6 +51,20 @@ export default async function handler(
               }
             ]
           }
+        },
+        facebook: {
+          attachment: {
+            type: '',
+            payload: {}
+          }
+        },
+        slack: {
+          text: '',
+          attachments: []
+        },
+        telegram: {
+          text: '',
+          parse_mode: ''
         }
       };
 
