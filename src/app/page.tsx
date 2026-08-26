@@ -42,7 +42,10 @@ const Home = () => {
 
     const chatgptData = await res.json();
 
-    // console.log(chatgptData);
+    if (!res.ok) {
+      console.error('API error:', chatgptData.error);
+      return;
+    }
 
     setChatHistory(chatgptData);
 
@@ -51,7 +54,7 @@ const Home = () => {
 
   const startRecognition = () => {
     const SpeechRecognition =
-      //@ts-ignore
+      //@ts-expect-error -- SpeechRecognition is not in the standard TypeScript DOM types
       window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (SpeechRecognition) {
@@ -118,7 +121,7 @@ const Home = () => {
             ml={{ base: 0, md: 3 }}
             width={{ base: '100%', md: 'auto' }}
             onClick={() => {
-              setShouldSubmit(true), handleSubmit;
+              setShouldSubmit(true);
             }}
           >
             Submit

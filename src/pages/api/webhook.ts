@@ -1,6 +1,8 @@
 import info from '@/utils/extra-information';
 import { openai } from '@/utils/openai';
-import { ChatCompletionMessage, ChatCompletionRole } from 'openai/resources';
+import type OpenAI from 'openai';
+type ChatCompletionMessage = OpenAI.Chat.Completions.ChatCompletionMessage;
+type ChatCompletionRole = OpenAI.Chat.Completions.ChatCompletionRole;
 
 import type { NextApiRequest, NextApiResponse } from 'next';
 
@@ -26,8 +28,8 @@ export default async function handler(
       const messages = [...chatHistory, lastQuestion];
 
       const chat = await openai.chat.completions.create({
-        model: 'gpt-3.5-turbo',
-        //@ts-ignore
+        model: process.env.OPENAI_MODEL ?? 'gpt-4o-mini',
+        //@ts-expect-error -- messages type mismatch between IChatGPTMessage and openai SDK types
         messages
       });
 
@@ -51,6 +53,20 @@ export default async function handler(
               }
             ]
           }
+        },
+        facebook: {
+          attachment: {
+            type: '',
+            payload: {}
+          }
+        },
+        slack: {
+          text: '',
+          attachments: []
+        },
+        telegram: {
+          text: '',
+          parse_mode: ''
         }
       };
 
@@ -63,7 +79,10 @@ export default async function handler(
       };
       return res.json(output);
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      return res
+        .status(500)
+        .json({ error: 'Failed to fetch response from OpenAI.' });
     }
   } else {
     console.log('Please use only POST method');
